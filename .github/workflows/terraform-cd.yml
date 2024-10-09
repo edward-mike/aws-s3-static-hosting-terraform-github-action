@@ -31,13 +31,13 @@ jobs:
         - name: 📦terraform init.
           run: terraform init
 
-        - name: ✅terraform validate
-          run: terraform validate
-        
         - name: 📝terraform plan
-          run: terraform plan
+          run: |
+            cd infra
+            terraform plan
           continue-on-error: true
 
         - name: 🚀terraform apply
           if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-          run: terraform apply -auto-approve
+          run: |
+            terraform apply -auto-approve

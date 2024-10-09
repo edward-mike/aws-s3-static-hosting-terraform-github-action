@@ -15,7 +15,6 @@ This project automates the deployment of a static website to AWS S3 and serves i
   - [GitHub Actions CI/CD](#github-actions-cicd)
 - [Usage](#usage)
 - [Results](#results)
-- [License](#license)
 
 ## Overview
 

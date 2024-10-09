@@ -1,0 +1,74 @@
+Static Website Hosting
+    - AWS S3, CloudFront, IAM
+    - Route53
+    - Terraform 
+    - GitHub Actions
+
+
+Documentation
+    - Diagram of Project* with https://lucid.app/
+    - Article with Medium.com or Linkedin Article
+
+    - Linkedin [Project]
+        -- Project Title 
+        -- Description (should contain keywords, and impacts)
+
+           Example : Deployed a high-availability web application using AWS CloudFormation. 
+                     Designed and implemented a VPC, subnets, Auto Scaling Groups, and a Load Balancer, ensuring scalability and availability for high-traffic scenarios.
+                     Automated infrastructure management with bash scripts, reducing manual setup time by 40%
+        
+        -- Technologies Used : ... 
+        -- Link to GitHub :
+
+.......................................................................................................................
+# Linkedin
+.......................................................................................................................
+
+Title:
+Static Website Hosting with AWS S3, CloudFront, Route 53, Terraform, and GitHub Actions
+
+Description:
+In this project, I built a highly available and scalable static website hosting solution using AWS services and Infrastructure as Code (IaC) tools. The website was hosted on Amazon S3 with content delivery accelerated using CloudFront, domain management via Route 53, and automated deployment using GitHub Actions and Terraform.
+
+The solution ensured fast content delivery, secure HTTPS access, and automated infrastructure provisioning.
+
+Technologies Used:
+-- AWS Services: S3, CloudFront, Route 53, IAM
+-- Infrastructure as Code: Terraform
+-- CI/CD Pipeline: GitHub Actions
+-- DNS & Domain Management: AWS Route 53
+-- Security: CloudFront SSL/TLS, S3 Bucket Policies
+
+
+-- Key Contributions:
+
+Infrastructure Setup:
+
+-- Provisioned an S3 bucket to host static website files and enabled static website hosting.
+-- Set up CloudFront to distribute website content globally, ensuring low latency and improved performance.
+-- Configured Route 53 for DNS management, linking a custom domain to the website with HTTPS enabled using CloudFront.
+-- Managed SSL certificates via AWS Certificate Manager for secure traffic over HTTPS.
+
+
+Terraform Automation:
+
+-- Automated the infrastructure deployment using Terraform, creating S3 buckets, CloudFront distributions, and Route 53 configurations as code.
+-- Ensured the infrastructure was version-controlled, repeatable, and scalable by using Terraform modules.
+
+
+CI/CD with GitHub Actions:
+
+-- Integrated GitHub Actions to automate the deployment process. This CI/CD pipeline automatically built and deployed the static site to the S3 bucket whenever changes were pushed to the GitHub repository.
+-- Ensured automated invalidation of CloudFront caches after every deployment to ensure updated content was served immediately.
+
+
+Security & Cost Optimization:
+
+-- Enforced S3 bucket policies to restrict access to the bucket only through CloudFront, securing the content delivery.
+-- Used Lambda@Edge to improve security by customizing headers and CloudFront settings, such as enabling security headers and optimizing for caching.
+
+Outcome:
+-- Achieved 100% availability and low latency for a global user base using CloudFront.
+-- The automated deployment pipeline reduced manual intervention, reducing deployment time by 60%.
+-- Improved security by implementing HTTPS with SSL certificates and restricting direct access to the S3 bucket.
+-- Optimized website delivery costs by using CloudFront’s caching and Route 53’s efficient DNS management.

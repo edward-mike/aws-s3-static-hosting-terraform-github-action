@@ -1,0 +1,37 @@
+name: 🛠️Terraform Cleanup 🗑️
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+env:
+  REGION: 'us-east-1'
+
+jobs:
+  terraform-destroy:
+    name: Destroy Terraform Resources 
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥Checkout repository code 
+        uses: actions/checkout@v4 # Fetch code from the repository
+
+      - name: 🔑Configure AWS credentials 
+      # https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.REGION }}
+
+      - name: 🏗️ Setup Terraform 
+      # https://github.com/marketplace/actions/hashicorp-setup-terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: 📦Terraform init
+        run: terraform init
+
+      - name: 📝Terraform plan for destroy 
+        run: terraform plan -destroy
+    
+      - name: 🗑️Destroy Terraform infrastructure 
+        run: terraform destroy -auto-approve

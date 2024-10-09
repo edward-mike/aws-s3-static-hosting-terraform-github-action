@@ -1,0 +1,42 @@
+name: 🛠️Terraform and Github Actions
+
+on: 
+  push:
+      branches: [master,main]
+  pull_request:
+
+env:
+  REGION: 'us-east-1' 
+
+jobs:
+    terraform:
+      name: 🛠️ terraform 
+      runs-on: ubuntu-latest
+      
+      steps: 
+        - name: Get code # get code from repository to server
+          uses: actions/checkout@v4 # action to use - https://github.com/actions/checkout
+
+        - name: 🔑AWS credentials configuration 
+          uses: aws-actions/configure-aws-credentials@v4
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ env.REGION }}
+
+        - name: 🏗️ Setup terraform
+          uses: hashicorp/setup-terraform@v3
+
+        - name: 📦terraform init.
+          run: terraform init
+
+        - name: ✅terraform validate
+          run: terraform validate
+        
+        - name: 📝terraform plan
+          run: terraform plan
+          continue-on-error: true
+
+        - name: 🚀terraform apply
+          if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+          run: terraform apply -auto-approve

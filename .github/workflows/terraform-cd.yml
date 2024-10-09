@@ -33,7 +33,6 @@ jobs:
 
         - name: 📝terraform plan
           run: |
-            cd infra
             terraform plan
           continue-on-error: true
 

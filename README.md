@@ -20,14 +20,12 @@ This project automates the deployment of a static website to AWS S3 and serves i
 
 This repository demonstrates how to automate the deployment of a static website to AWS using S3 for storage and CloudFront for global content delivery. The infrastructure is defined using Terraform, and deployments are automatically handled through GitHub Actions whenever changes are pushed to the repository.
 
-## Architecture
+## Infrastructure Overview
 
 1. **AWS S3**: Hosts the static website files.
 2. **AWS CloudFront**: Distributes the website globally via a CDN, improving load times and availability.
 3. **Terraform**: Provisions and manages the AWS resources.
 4. **GitHub Actions**: Automates the CI/CD pipeline to deploy updates to the website when changes are committed.
-
-![Architecture Diagram](path/to/your/architecture-diagram.png) <!-- Replace with a valid link to your architecture diagram -->
 
 ## Technologies Used
 

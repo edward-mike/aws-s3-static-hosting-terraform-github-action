@@ -3,7 +3,8 @@ name: 🛠️Terraform and Github Actions
 on: 
   push:
       branches: [master,main]
-  pull_request:
+      paths:
+        - 'website/**'  # Trigger this event only if files in the directory change
 
 env:
   REGION: 'us-east-1' 
